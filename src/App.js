@@ -1,25 +1,25 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Route} from "react-router-dom";
 import { Header } from './shared/Header';
-import { RentalCard } from './components/rental/RentalCard';
+import { RentalList } from './components/rental/RentalList';
+import { RentalDetail } from './components/rental/RentalDetail';
+
 
 function App() {
+
+
+
   return (
+   <BrowserRouter>
     <div className="App">
      <Header />
      <div className='container'>
-      <section id='rentalListing'>
-        <h1 className='page-title'>Your Home All Around the World</h1>
-        <div className='row'>
-          <RentalCard />
-          <RentalCard />
-          <RentalCard />
-          <RentalCard />
-        </div>
-      </section>
-</div>
+       <Route exact path="/" component={RentalList} />
+       <Route exact path="/test" component={RentalDetail} />
     </div>
-    
+    </div>
+   </BrowserRouter> 
   );
 }
 
